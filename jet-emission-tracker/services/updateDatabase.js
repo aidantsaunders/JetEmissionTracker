@@ -17,7 +17,7 @@ const getGoogleSheetData = async () => {
 
     for (const range of ranges) {
       const response = await sheets.spreadsheets.values.get({
-        spreadsheetId: process.env.SPREADSHEET_ID,
+        spreadsheetId: '1SsdEMEs-ACQem2l1mox-hzlw8-bG1_rEKNYPP3bfpfg',
         range: range,
       });
       combinedData = combinedData.concat(response.data.values);
