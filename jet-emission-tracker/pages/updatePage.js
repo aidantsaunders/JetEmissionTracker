@@ -13,34 +13,22 @@ export async function getServerSideProps(context) {
 }
 
 export default function UpdatePage({ data }) {
-  const [aircraftDetails, setAircraftDetails] = useState([]);
-
+  // Example of fetching from within a React component
   useEffect(() => {
     const fetchAircraftData = async () => {
-      const details = [];
-
-      for (const [owner, registrations] of data) {
-        const registrationList = registrations.split(', ');
-        for (const registration of registrationList) {
-          const aircraftType = await fetchAircraftType(registration.trim());
-          details.push({ owner, registration, aircraftType });
-        }
+      try {
+        const res = await fetch(`/api/aircraft?registration=N8737L`);
+        const data = await res.json();
+        console.log(data);
+        // Handle the response data
+      } catch (error) {
+        console.error('Failed to fetch aircraft data:', error);
       }
-
-      setAircraftDetails(details);
     };
 
     fetchAircraftData();
-  }, [data]);
-
-  async function fetchAircraftType(registration) {
-    // Placeholder for fetching logic from ADS-B or similar API
-    // Return aircraft type based on registration
-    return 'Aircraft Type Placeholder'; // Replace with actual fetch logic
-  }
-
-  // Render your page with the data here
-  console.log(aircraftDetails); // Now contains owner, registration, and aircraft type
+  }, []);
+  
   return (
     <div>
       Update Page
