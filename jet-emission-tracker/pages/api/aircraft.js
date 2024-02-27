@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     method: 'GET',
     url: `https://adsbexchange-com1.p.rapidapi.com/v2/registration/${registration}/`,
     headers: {
-      'X-RapidAPI-Key': process.env.RAPIDAPI_KEY, // Store your API key in an environment variable
+      'X-RapidAPI-Key': process.env.ADS_B_API_KEY, // Store your API key in an environment variable
       'X-RapidAPI-Host': 'adsbexchange-com1.p.rapidapi.com'
     }
   };
