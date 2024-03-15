@@ -13,6 +13,11 @@ export default function Home() {
           Jet Emission Tracker
         </Link>
       </div>
+      <div>
+        <Link href='/updatePage'>
+          Update Database
+        </Link>
+      </div>
     </main>
   );
 }
